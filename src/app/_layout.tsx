@@ -1,7 +1,8 @@
 import { Slot } from "expo-router";
-import { StatusBar } from "expo-status-bar";
+import { StatusBar } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import * as SplashScreen from "expo-splash-screen";
+
 import {
   useFonts,
   Roboto_400Regular,
@@ -18,13 +19,13 @@ export default function Layout() {
     Roboto_700Bold,
   });
 
-  if (!fontsLoaded) {
+  if (fontsLoaded) {
     SplashScreen.hideAsync();
   }
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <StatusBar />
+      <StatusBar barStyle="light-content" />
       {fontsLoaded && <Slot />}
     </GestureHandlerRootView>
   );
