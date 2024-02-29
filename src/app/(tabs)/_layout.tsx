@@ -1,10 +1,18 @@
+import { useRef } from "react";
 import { Tabs } from "expo-router";
-import { Foundation, Ionicons } from "@expo/vector-icons";
+import BottomSheet from "@gorhom/bottom-sheet";
+import { Foundation, Ionicons, FontAwesome5 } from "@expo/vector-icons";
 import { theme } from "@/theme";
 import { Avatar } from "@/components/Avatar";
 import { View } from "react-native";
+import { Menu } from "@/components/Menu";
 
 export default function TabLayout() {
+  const bottomSheetRef = useRef<BottomSheet>(null);
+
+  const handleBottomSheetOpen = () => bottomSheetRef.current?.expand();
+  const handleBottomSheetClose = () => bottomSheetRef.current?.snapToIndex(0);
+
   return (
     <View style={{ flex: 1 }}>
       <Tabs
@@ -36,6 +44,20 @@ export default function TabLayout() {
           }}
         />
         <Tabs.Screen
+          name="menu"
+          options={{
+            tabBarIcon: ({ size, color }) => (
+              <FontAwesome5 name="plus" size={size} color={color} />
+            ),
+          }}
+          listeners={() => ({
+            tabPress: (event) => {
+              event.preventDefault();
+              handleBottomSheetOpen();
+            },
+          })}
+        />
+        <Tabs.Screen
           name="messages"
           options={{
             tabBarIcon: ({ size, color }) => (
@@ -57,6 +79,7 @@ export default function TabLayout() {
           }}
         />
       </Tabs>
+      <Menu ref={bottomSheetRef} onClose={handleBottomSheetClose} />
     </View>
   );
 }
