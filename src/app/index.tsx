@@ -1,7 +1,7 @@
-import { useEffect } from "react"
-import { StyleSheet, View, useWindowDimensions } from "react-native"
-import { Skeleton } from "moti/skeleton"
-import { router } from "expo-router"
+import { useEffect } from "react";
+import { StyleSheet, View, useWindowDimensions } from "react-native";
+import { Skeleton } from "moti/skeleton";
+import { router } from "expo-router";
 
 import Animated, {
   SlideInDown,
@@ -10,33 +10,33 @@ import Animated, {
   withSequence,
   withTiming,
   runOnJS,
-} from "react-native-reanimated"
+} from "react-native-reanimated";
 
-import { theme } from "@/theme"
+import { theme } from "@/theme";
 
 export default function Splash() {
-  const logoScale = useSharedValue(1)
-  const logoPositionY = useSharedValue(0)
-  const contentDisplay = useSharedValue(0)
+  const logoScale = useSharedValue(1);
+  const logoPositionY = useSharedValue(0);
+  const contentDisplay = useSharedValue(0);
 
-  const dimensions = useWindowDimensions()
+  const dimensions = useWindowDimensions();
 
   const skeletonColors = [
     theme.colors.gray[600],
     theme.colors.gray[700],
     theme.colors.gray[600],
-  ]
+  ];
 
   const logoAnimatedStyles = useAnimatedStyle(() => ({
     transform: [
       { scale: logoScale.value },
       { translateY: logoPositionY.value },
     ],
-  }))
+  }));
 
   const contentAnimatedStyles = useAnimatedStyle(() => ({
     display: contentDisplay.value === 1 ? "flex" : "none",
-  }))
+  }));
 
   function logoAnimation() {
     logoScale.value = withSequence(
@@ -46,13 +46,13 @@ export default function Splash() {
         if (finished) {
           logoPositionY.value = withSequence(
             withTiming(50, undefined, () => (contentDisplay.value = 1)),
-            withTiming(-dimensions.height, { duration: 400 })
-          )
+            withTiming(-dimensions.height, { duration: 20 })
+          );
 
-          runOnJS(onEndSplash)()
+          runOnJS(onEndSplash)();
         }
       })
-    )
+    );
   }
 
   function filters() {
@@ -64,34 +64,34 @@ export default function Splash() {
         radius={6}
         colors={skeletonColors}
       />
-    ))
+    ));
   }
 
   function boxes(column: "right" | "left") {
-    const rest = column === "left" ? 0 : 1
+    const rest = column === "left" ? 0 : 1;
 
     return Array.from({ length: 20 })
       .filter((_, index) => index % 2 === rest)
       .map((_, index) => {
-        const height = index % 2 === (column === "left" ? 0 : 1) ? 200 : 300
+        const height = index % 2 === (column === "left" ? 0 : 1) ? 200 : 300;
 
         return (
           <Animated.View key={index} style={[styles.box, { height }]}>
             <Skeleton colors={skeletonColors} width="100%" height={height} />
           </Animated.View>
-        )
-      })
+        );
+      });
   }
 
   function onEndSplash() {
     setTimeout(() => {
-      router.push("/(tabs)")
-    }, 2000)
+      router.push("/(tabs)");
+    }, 2000);
   }
 
   useEffect(() => {
-    logoAnimation()
-  }, [])
+    logoAnimation();
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -112,7 +112,7 @@ export default function Splash() {
         </View>
       </Animated.View>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -152,4 +152,4 @@ const styles = StyleSheet.create({
     flex: 1,
     width: "100%",
   },
-})
+});
