@@ -1,9 +1,11 @@
-import { FlatList } from "react-native";
-import { Filter } from "@/components/Filter";
-import { styles } from "./styles";
-import { FiltersProps } from "./filters";
+import { FlatList } from "react-native"
 
-export function Filters({ filters, filter, onChange }: FiltersProps) {
+import { styles } from "./styles"
+import { FilterProps } from "./filters"
+
+import { Filter } from "@/components/Filter"
+
+export function Filters({ filters, filter, onChange }: FilterProps) {
   return (
     <FlatList
       data={filters}
@@ -20,5 +22,5 @@ export function Filters({ filters, filter, onChange }: FiltersProps) {
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={styles.content}
     />
-  );
+  )
 }

@@ -1,12 +1,11 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from "react-native"
 
 export const styles = StyleSheet.create({
   list: {
-    paddingBottom: 4,
-    maxHeight: 34,
+    paddingBottom: 6,
   },
   content: {
-    gap: 12,
+    gap: 24,
     paddingHorizontal: 8,
   },
-});
+})

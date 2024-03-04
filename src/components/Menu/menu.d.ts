@@ -1,3 +1,3 @@
 export type MenuProps = {
-  onClose: () => void;
-};
+  onClose: () => void
+}

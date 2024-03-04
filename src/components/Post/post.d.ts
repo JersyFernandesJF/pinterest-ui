@@ -1,5 +1,5 @@
 export type PostProps = {
-  id: string;
-  title: string;
-  image: string;
-};
+  id: string
+  title: string
+  image: string
+}

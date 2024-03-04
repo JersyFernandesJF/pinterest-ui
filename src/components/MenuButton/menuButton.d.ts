@@ -1,6 +1,6 @@
-import { FontAwesome } from "@expo/vector-icons";
+import { FontAwesome } from "@expo/vector-icons"
 
 export type MenuButtonProps = {
-  title: string;
-  icon: keyof typeof FontAwesome.glyphMap;
-};
+  title: string
+  icon: keyof typeof FontAwesome.glyphMap
+}

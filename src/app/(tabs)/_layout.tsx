@@ -2,10 +2,11 @@ import { useRef } from "react";
 import { Tabs } from "expo-router";
 import BottomSheet from "@gorhom/bottom-sheet";
 import { Foundation, Ionicons, FontAwesome5 } from "@expo/vector-icons";
+
 import { theme } from "@/theme";
+import { Menu } from "@/components/Menu";
 import { Avatar } from "@/components/Avatar";
 import { View } from "react-native";
-import { Menu } from "@/components/Menu";
 
 export default function TabLayout() {
   const bottomSheetRef = useRef<BottomSheet>(null);
@@ -35,6 +36,7 @@ export default function TabLayout() {
             ),
           }}
         />
+
         <Tabs.Screen
           name="search"
           options={{
@@ -43,6 +45,7 @@ export default function TabLayout() {
             ),
           }}
         />
+
         <Tabs.Screen
           name="menu"
           options={{
@@ -57,6 +60,7 @@ export default function TabLayout() {
             },
           })}
         />
+
         <Tabs.Screen
           name="messages"
           options={{
@@ -72,13 +76,14 @@ export default function TabLayout() {
               <Avatar
                 selected={color === theme.colors.white}
                 source={{
-                  uri: "https://avatars.githubusercontent.com/u/102835855?s=400&u=79eedf1c6ac806d07646689126fbc8a9bf5a4201&v=4",
+                  uri: "https://avatars.githubusercontent.com/u/102835855?v=4",
                 }}
               />
             ),
           }}
         />
       </Tabs>
+
       <Menu ref={bottomSheetRef} onClose={handleBottomSheetClose} />
     </View>
   );

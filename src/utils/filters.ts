@@ -3,9 +3,9 @@ export const FILTERS = [
   "UI Clone",
   "Setup",
   "Gamer",
-  "Escritorio",
+  "Escritório",
   "Casa",
   "Mobile",
   "Inspirações",
   "Interfaces",
-];
+]

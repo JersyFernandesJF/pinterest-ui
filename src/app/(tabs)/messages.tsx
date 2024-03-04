@@ -1,12 +1,13 @@
-import { View, StyleSheet, Text } from "react-native";
-import { theme } from "@/theme";
+import { View, StyleSheet, Text } from "react-native"
+
+import { theme } from "@/theme"
 
 export default function Messages() {
   return (
     <View style={styles.container}>
-      <Text>message</Text>
+      <Text style={styles.text}>Messages</Text>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -21,4 +22,4 @@ const styles = StyleSheet.create({
     color: theme.colors.white,
     fontFamily: theme.fontFamily.bold,
   },
-});
+})

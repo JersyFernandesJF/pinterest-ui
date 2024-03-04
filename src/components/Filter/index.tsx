@@ -1,7 +1,7 @@
-import React from "react";
-import { Pressable, PressableProps, Text } from "react-native";
-import { FilterProps } from "./filter";
-import { styles } from "./styles";
+import { Pressable, PressableProps, Text } from "react-native"
+
+import { styles } from "./styles"
+import { FilterProps } from "./filter"
 
 export function Filter({
   filter,
@@ -15,5 +15,5 @@ export function Filter({
     >
       <Text style={styles.text}>{filter}</Text>
     </Pressable>
-  );
+  )
 }

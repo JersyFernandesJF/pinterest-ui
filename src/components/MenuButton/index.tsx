@@ -1,10 +1,10 @@
-import { Pressable, Text } from "react-native";
-import { FontAwesome } from "@expo/vector-icons";
+import { Pressable, Text } from "react-native"
+import { FontAwesome } from "@expo/vector-icons"
 
-import { MenuButtonProps } from "./menuButton";
+import { styles } from "./styles"
+import { theme } from "@/theme"
 
-import { styles } from "./styles";
-import { theme } from "@/theme";
+import { MenuButtonProps } from "./menuButton"
 
 export function MenuButton({ title, icon }: MenuButtonProps) {
   return (
@@ -17,5 +17,5 @@ export function MenuButton({ title, icon }: MenuButtonProps) {
       />
       <Text style={styles.text}>{title}</Text>
     </Pressable>
-  );
+  )
 }
