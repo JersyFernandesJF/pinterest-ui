@@ -59,4 +59,4 @@ export const POSTS = [
     image:
       "https://images.pexels.com/photos/5318967/pexels-photo-5318967.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
-];
+]

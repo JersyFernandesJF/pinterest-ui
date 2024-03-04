@@ -1,3 +1,3 @@
 export type AvatarProps = {
-  selected: boolean;
-};
+  selected: boolean
+}

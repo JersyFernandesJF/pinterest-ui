@@ -1,4 +1,4 @@
 export type FilterProps = {
-  filter: string;
-  selected: boolean;
-};
+  filter: string
+  selected: boolean
+}

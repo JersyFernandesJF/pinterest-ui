@@ -1,12 +1,12 @@
-import { forwardRef } from "react";
-import { View, Text } from "react-native";
-import BottomSheet from "@gorhom/bottom-sheet";
-import { FontAwesome } from "@expo/vector-icons";
+import { forwardRef } from "react"
+import { Text, View } from "react-native"
+import BottomSheet from "@gorhom/bottom-sheet"
+import { FontAwesome } from "@expo/vector-icons"
 
-import { MenuProps } from "./menu";
-import { styles } from "./styles";
-import { theme } from "@/theme";
-import { MenuButton } from "@/components/MenuButton";
+import { MenuProps } from "./menu"
+import { styles } from "./styles"
+import { theme } from "@/theme"
+import { MenuButton } from "../MenuButton"
 
 export const Menu = forwardRef<BottomSheet, MenuProps>(({ onClose }, ref) => {
   return (
@@ -22,11 +22,12 @@ export const Menu = forwardRef<BottomSheet, MenuProps>(({ onClose }, ref) => {
           <FontAwesome
             name="close"
             size={24}
-            onPress={onClose}
             color={theme.colors.white}
+            onPress={onClose}
           />
-          <Text style={styles.tittle}>Comece a criar agora</Text>
+          <Text style={styles.title}>Comece a criar agora</Text>
         </View>
+
         <View style={styles.options}>
           <MenuButton title="Pin" icon="home" />
           <MenuButton title="Colagem" icon="paste" />
@@ -34,5 +35,5 @@ export const Menu = forwardRef<BottomSheet, MenuProps>(({ onClose }, ref) => {
         </View>
       </View>
     </BottomSheet>
-  );
-});
+  )
+})

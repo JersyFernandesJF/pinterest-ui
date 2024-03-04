@@ -1,5 +1,6 @@
-import { StyleSheet } from "react-native";
-import { theme } from "@/theme";
+import { StyleSheet } from "react-native"
+
+import { theme } from "@/theme"
 
 export const styles = StyleSheet.create({
   image: {
@@ -11,4 +12,4 @@ export const styles = StyleSheet.create({
     borderWidth: 3,
     borderColor: theme.colors.white,
   },
-});
+})
